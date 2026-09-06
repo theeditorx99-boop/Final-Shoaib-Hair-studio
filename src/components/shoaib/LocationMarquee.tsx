@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { MapPin, Phone, MessageCircle, Clock, ExternalLink } from 'lucide-react';
+import { ScrollRevealText } from './ScrollRevealText';
 
 export function LocationMarquee() {
   return (
@@ -36,9 +37,14 @@ export function LocationMarquee() {
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
         >
-          <h2 className="font-display font-bold leading-none tracking-tighter text-[10vw] md:text-7xl uppercase mb-10">
-            GULISTAN-E-JOHAR STUDIO
-          </h2>
+          <ScrollRevealText
+            text="GULISTAN-E-JOHAR STUDIO"
+            tag="h2"
+            preset="Masked Lines"
+            colorHidden="#9ca3af"
+            colorRevealed="#000000"
+            className="font-display font-bold leading-none tracking-tighter text-[10vw] md:text-7xl uppercase mb-10"
+          />
           
           <div className="flex flex-col gap-8">
             <div className="flex items-start gap-4">

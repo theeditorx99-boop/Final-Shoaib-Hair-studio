@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { ScrollRevealText } from './ScrollRevealText';
 
 const categories = [
   {
@@ -82,9 +83,14 @@ export function ServicesMenu() {
         transition={{ duration: 0.9, ease: 'easeOut' }}
       >
         <p className="text-xs tracking-[0.2em] uppercase font-mono mb-4 text-gray-500">Discover Our</p>
-        <h2 className="font-display font-bold leading-none tracking-tighter text-[12vw] md:text-[clamp(72px,10vw,180px)] uppercase">
-          Services Menu
-        </h2>
+        <ScrollRevealText
+          text="Services Menu"
+          tag="h2"
+          preset="Cinematic"
+          colorHidden="#9ca3af"
+          colorRevealed="#000000"
+          className="font-display font-bold leading-none tracking-tighter text-[12vw] md:text-[clamp(72px,10vw,180px)] uppercase"
+        />
       </motion.div>
 
       {/* 3-Column Layout Wrapper */}
@@ -152,9 +158,14 @@ export function ServicesMenu() {
 
               {/* Data Column */}
               <div className="w-full lg:w-[60%] flex flex-col">
-                <h3 className="text-4xl md:text-[clamp(42px,5vw,96px)] font-display uppercase tracking-tighter mb-10 leading-none">
-                  {cat.title}
-                </h3>
+                <ScrollRevealText
+                  text={cat.title}
+                  tag="h3"
+                  preset="Fade In Up"
+                  colorHidden="#9ca3af"
+                  colorRevealed="#000000"
+                  className="text-4xl md:text-[clamp(42px,5vw,96px)] font-display uppercase tracking-tighter mb-10 leading-none"
+                />
 
                 <div className="w-full">
                   {/* Price Table Headers */}

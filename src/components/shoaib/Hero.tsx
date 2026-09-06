@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { ScrollRevealText } from './ScrollRevealText';
 
 interface HeroProps {
   headline?: string;
@@ -31,9 +32,16 @@ export function Hero({ headline = "A considered approach to hair, grooming, beau
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
         className="w-full flex justify-center py-16 md:py-24 px-6"
       >
-        <p className="text-sm md:text-xl text-black font-medium tracking-widest max-w-3xl mx-auto uppercase text-center leading-relaxed font-sans">
-          {headline}
-        </p>
+        <ScrollRevealText
+          text={headline}
+          tag="p"
+          preset="Blur Reveal"
+          trigger="On Load"
+          onLoadDuration={2}
+          colorHidden="#9ca3af"
+          colorRevealed="#000000"
+          className="text-sm md:text-xl text-black font-medium tracking-widest max-w-3xl mx-auto uppercase text-center leading-relaxed font-sans"
+        />
       </motion.div>
     </section>
   );

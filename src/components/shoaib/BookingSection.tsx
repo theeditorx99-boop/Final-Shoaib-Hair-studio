@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { ScrollRevealText } from './ScrollRevealText';
 
 // Converts "HH:MM" (24h) → "H:MM AM/PM" (12h)
 function to12Hour(time: FormDataEntryValue | null): string {
@@ -55,9 +56,14 @@ Notes: ${notes}`;
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.7, ease: 'easeOut' }}
         >
-          <h2 className="font-display font-bold leading-none tracking-tighter text-[10vw] md:text-7xl uppercase mb-6">
-            For Bookings & Appointments
-          </h2>
+          <ScrollRevealText
+            text="For Bookings & Appointments"
+            tag="h2"
+            preset="Cinematic"
+            colorHidden="#9ca3af"
+            colorRevealed="#000000"
+            className="font-display font-bold leading-none tracking-tighter text-[10vw] md:text-7xl uppercase mb-6"
+          />
           <p className="text-sm md:text-base text-gray-600 max-w-2xl mx-auto">
             Appointment requests are confirmed by our salon team. For urgent bookings, please use our direct phone number.
           </p>

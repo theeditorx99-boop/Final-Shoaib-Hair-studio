@@ -1,5 +1,6 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { ScrollRevealText } from './ScrollRevealText';
 
 export function Footer() {
   const location = useLocation();
@@ -106,9 +107,14 @@ export function Footer() {
         viewport={{ once: true, margin: '-40px' }}
         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
       >
-        <h2 className="font-display font-bold text-[25vw] md:text-[20vw] whitespace-nowrap text-black">
-          SHOAIB SALON
-        </h2>
+        <ScrollRevealText
+          text="SHOAIB SALON"
+          tag="h2"
+          preset="Masked Lines"
+          colorHidden="#9ca3af"
+          colorRevealed="#000000"
+          className="font-display font-bold text-[25vw] md:text-[20vw] whitespace-nowrap text-black"
+        />
       </motion.div>
     </footer>
   );

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import { ScrollRevealText } from './ScrollRevealText';
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -46,9 +47,16 @@ export function Header() {
       >
         <div className="flex flex-col items-center text-center">
           <img src="/assets/logo salon.png" alt="Shoaib Salon Logo" className="h-24 md:h-32 mb-4 md:mb-8 object-contain" />
-          <h1 className="text-6xl md:text-[100px] lg:text-[140px] font-display font-normal tracking-wide uppercase leading-none">
-            SHOAIB SALON
-          </h1>
+          <ScrollRevealText
+            text="SHOAIB SALON"
+            tag="h1"
+            preset="Masked Lines"
+            trigger="On Load"
+            onLoadDuration={1.2}
+            colorHidden="#9ca3af"
+            colorRevealed="#000000"
+            className="text-6xl md:text-[100px] lg:text-[140px] font-display font-normal tracking-wide uppercase leading-none"
+          />
           <div className="flex gap-4 md:gap-8 mt-2 md:mt-4 text-[10px] md:text-sm font-bold tracking-[0.1em] font-sans uppercase">
             <span>HAIR • BEAUTY • GROOMING</span>
             <span>SINCE 2008</span>
