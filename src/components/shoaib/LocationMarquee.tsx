@@ -29,7 +29,13 @@ export function LocationMarquee() {
       <div className="max-w-[1600px] mx-auto px-6 md:px-10 grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24 relative z-10">
         
         {/* Branch Info */}
-        <div className="flex flex-col">
+        <motion.div
+          className="flex flex-col"
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+        >
           <h2 className="font-display font-bold leading-none tracking-tighter text-[10vw] md:text-7xl uppercase mb-10">
             GULISTAN-E-JOHAR STUDIO
           </h2>
@@ -79,10 +85,16 @@ export function LocationMarquee() {
               </button>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        {/* Map Embed (Using a placeholder grey box since real embed requires an API key or specific iframe) */}
-        <div className="w-full h-[400px] lg:h-full min-h-[400px] bg-gray-100 relative group overflow-hidden border border-gray-200">
+        {/* Map */}
+        <motion.div
+          className="w-full h-[400px] lg:h-full min-h-[400px] bg-gray-100 relative group overflow-hidden border border-gray-200"
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.8, ease: 'easeOut', delay: 0.15 }}
+        >
            <img 
               src="https://images.unsplash.com/photo-1524813686514-a57563d77965?q=80&w=1000&auto=format&fit=crop" 
               alt="Map Location" 
@@ -93,7 +105,7 @@ export function LocationMarquee() {
                  Open in Maps
                </a>
             </div>
-        </div>
+        </motion.div>
 
       </div>
     </section>

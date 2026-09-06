@@ -1,4 +1,5 @@
 import { useLocation, useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 export function Footer() {
   const location = useLocation();
@@ -40,7 +41,13 @@ export function Footer() {
       <div className="max-w-[1600px] mx-auto px-6 md:px-10 w-full flex flex-col md:flex-row justify-between gap-16 mb-24 md:mb-40">
         
         {/* Socials & Email */}
-        <div className="flex flex-col gap-10">
+        <motion.div
+          className="flex flex-col gap-10"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.7, ease: 'easeOut' }}
+        >
           <div>
             <h4 className="text-xs uppercase tracking-widest font-mono text-gray-400 mb-6">Connect</h4>
             <ul className="flex flex-col gap-3">
@@ -60,10 +67,16 @@ export function Footer() {
               shoaibbashir840@gmail.com
             </a>
           </div>
-        </div>
+        </motion.div>
 
         {/* Links */}
-        <div className="flex flex-col md:items-end gap-10">
+        <motion.div
+          className="flex flex-col md:items-end gap-10"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.7, ease: 'easeOut', delay: 0.15 }}
+        >
           <div>
             <h4 className="text-xs uppercase tracking-widest font-mono text-gray-400 mb-6 md:text-right">Explore</h4>
             <ul className="flex flex-col gap-3 md:items-end">
@@ -82,15 +95,21 @@ export function Footer() {
              <a href="#" className="text-xs text-gray-500 hover:text-black transition-colors uppercase tracking-widest">Terms & Conditions</a>
              <p className="text-xs text-gray-400 uppercase tracking-widest mt-4">© {new Date().getFullYear()} Shoaib Salon. All rights reserved.</p>
           </div>
-        </div>
+        </motion.div>
       </div>
 
-      {/* Oversized Wordmark (intentionally cropped on large screens) */}
-      <div className="w-full flex justify-center overflow-hidden leading-[0.75] select-none translate-y-4 md:translate-y-10">
+      {/* Oversized Wordmark */}
+      <motion.div
+        className="w-full flex justify-center overflow-hidden leading-[0.75] select-none translate-y-4 md:translate-y-10"
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-40px' }}
+        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+      >
         <h2 className="font-display font-bold text-[25vw] md:text-[20vw] whitespace-nowrap text-black">
           SHOAIB SALON
         </h2>
-      </div>
+      </motion.div>
     </footer>
   );
 }

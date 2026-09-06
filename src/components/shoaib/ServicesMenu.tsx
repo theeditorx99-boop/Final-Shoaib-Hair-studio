@@ -74,12 +74,18 @@ export function ServicesMenu() {
   return (
     <section id="services" className="w-full bg-white text-black py-24 md:py-40">
       {/* Intro */}
-      <div className="max-w-[1600px] mx-auto px-6 md:px-10 mb-20 md:mb-32">
+      <motion.div
+        className="max-w-[1600px] mx-auto px-6 md:px-10 mb-20 md:mb-32"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-80px' }}
+        transition={{ duration: 0.9, ease: 'easeOut' }}
+      >
         <p className="text-xs tracking-[0.2em] uppercase font-mono mb-4 text-gray-500">Discover Our</p>
         <h2 className="font-display font-bold leading-none tracking-tighter text-[12vw] md:text-[clamp(72px,10vw,180px)] uppercase">
           Services Menu
         </h2>
-      </div>
+      </motion.div>
 
       {/* 3-Column Layout Wrapper */}
       <div className="max-w-[1600px] mx-auto px-6 md:px-10 flex flex-col md:flex-row relative">

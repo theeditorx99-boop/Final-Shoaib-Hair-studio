@@ -1,6 +1,16 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 
+// Converts "HH:MM" (24h) → "H:MM AM/PM" (12h)
+function to12Hour(time: FormDataEntryValue | null): string {
+  if (!time || typeof time !== 'string' || !time.includes(':')) return '';
+  const [hourStr, minute] = time.split(':');
+  let hour = parseInt(hourStr, 10);
+  const period = hour >= 12 ? 'PM' : 'AM';
+  hour = hour % 12 || 12;
+  return `${hour}:${minute} ${period}`;
+}
+
 export function BookingSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -15,7 +25,7 @@ export function BookingSection() {
     const phone = formData.get('phone');
     const branch = formData.get('branch');
     const date = formData.get('date');
-    const time = formData.get('time');
+    const time = to12Hour(formData.get('time'));
     const notes = formData.get('notes');
     const service = formData.get('service');
 
@@ -38,16 +48,29 @@ Notes: ${notes}`;
   return (
     <section id="booking" className="w-full bg-gray-50 py-24 md:py-40 border-t border-gray-200">
       <div className="max-w-[800px] mx-auto px-6 md:px-10">
-        <div className="text-center mb-16">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.7, ease: 'easeOut' }}
+        >
           <h2 className="font-display font-bold leading-none tracking-tighter text-[10vw] md:text-7xl uppercase mb-6">
             For Bookings & Appointments
           </h2>
           <p className="text-sm md:text-base text-gray-600 max-w-2xl mx-auto">
             Appointment requests are confirmed by our salon team. For urgent bookings, please use our direct phone number.
           </p>
-        </div>
+        </motion.div>
 
-        <form onSubmit={handleSubmit} className="flex flex-col gap-8">
+        <motion.form
+          onSubmit={handleSubmit}
+          className="flex flex-col gap-8"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.8, ease: 'easeOut', delay: 0.15 }}
+        >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="flex flex-col gap-2">
               <label className="text-xs uppercase tracking-widest font-mono text-gray-500">First Name *</label>
@@ -120,7 +143,7 @@ Notes: ${notes}`;
           >
             {isSubmitting ? 'Submitting...' : 'Request Appointment'}
           </button>
-        </form>
+        </motion.form>
       </div>
     </section>
   );
