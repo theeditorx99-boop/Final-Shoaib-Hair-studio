@@ -15,17 +15,6 @@ const categories = [
     note: '*Includes wash and basic styling'
   },
   {
-    id: 'hair-color',
-    title: 'Hair Color',
-    image: '/assets/Hair color.mp4',
-    services: [
-      { name: 'Root Touch Up', price: 'PKR 6,500' },
-      { name: 'Full Head Color', price: 'From PKR 18,000' },
-      { name: 'Balayage / Ombre', price: 'From PKR 25,000' }
-    ],
-    note: '*Price may vary depending on hair length and volume'
-  },
-  {
     id: 'hair-styling',
     title: 'Hair Styling',
     image: '/assets/Hair Styling.webp',
@@ -33,16 +22,6 @@ const categories = [
       { name: 'Blow Dry (Classic)', price: 'PKR 4,000' },
       { name: 'Blow Dry (Volume/Curls)', price: 'PKR 5,500' },
       { name: 'Updo / Formal Styling', price: 'PKR 12,000' }
-    ]
-  },
-  {
-    id: 'makeup',
-    title: 'Makeup',
-    image: '/assets/Makeup.jpg',
-    services: [
-      { name: 'Party Makeup', price: 'PKR 25,000' },
-      { name: 'Engagement Makeup', price: 'PKR 45,000' },
-      { name: 'Signature Makeup', price: 'PKR 60,000' }
     ]
   },
   {
@@ -55,26 +34,6 @@ const categories = [
       { name: 'Mehndi Bride', price: 'PKR 80,000' }
     ],
     note: '*Includes hair, makeup, dupatta setting and nail color'
-  },
-  {
-    id: 'skin-care',
-    title: 'Skin Care',
-    image: '/assets/Skin care.jpg',
-    services: [
-      { name: 'Express Facial', price: 'PKR 5,000' },
-      { name: 'Deep Cleansing', price: 'PKR 8,500' },
-      { name: 'HydraFacial MD', price: 'PKR 22,000' }
-    ]
-  },
-  {
-    id: 'nails',
-    title: 'Nails',
-    image: '/assets/Nails.mp4',
-    services: [
-      { name: 'Acrylic Extensions', price: 'PKR 10,000' },
-      { name: 'Gel Polish', price: 'PKR 4,000' },
-      { name: 'Nail Art (Per Nail)', price: 'PKR 500' }
-    ]
   }
 ];
 

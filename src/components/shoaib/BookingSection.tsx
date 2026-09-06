@@ -1,19 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 
-const servicesList = [
-  'Hair Cut', 'Hair Color', 'Hair Straightening Treatments', 
-  'Hair Care Treatments', 'Hair Styling', 'Makeup', 
-  'GROOM PACKAGES', 'Eyebrow & Lashes', 'Skin Care', 
-  'Nails', 'Pedicure & Manicure', 'Nail Care Packages',
-  'Deal 1', 'Deal 2', 'Deal 3', 'Deal 4',
-  'Deal 5', 'Deal 6', 'Deal 7', 'Deal 8',
-  'BARRAT 1 DAY PACKAGE', 'BARRAT DAY TREATMENTS',
-  'MEHNDI DAY TREATMENTS', 'VALIMA DAY TREATMENTS',
-  "3 DAY'S WEDDING PACKAGE(EXCLUSIVE DEAL)",
-  '3 DAYS WEDDING PACKAGE(STANDARD DEAL)'
-];
-
 export function BookingSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -30,7 +17,7 @@ export function BookingSection() {
     const date = formData.get('date');
     const time = formData.get('time');
     const notes = formData.get('notes');
-    const services = formData.getAll('services');
+    const service = formData.get('service');
 
     const message = `*New Appointment Request*
 Name: ${firstName} ${lastName}
@@ -39,7 +26,7 @@ Email: ${email}
 Branch: ${branch}
 Date: ${date}
 Time: ${time}
-Services: ${services.join(', ')}
+Service: ${service}
 Notes: ${notes}`;
 
     const whatsappUrl = `https://wa.me/923312473575?text=${encodeURIComponent(message)}`;
@@ -91,21 +78,23 @@ Notes: ${notes}`;
             </select>
           </div>
 
-          <div className="flex flex-col gap-4">
-            <label className="text-xs uppercase tracking-widest font-mono text-gray-500">Service Categories</label>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {servicesList.map(service => (
-                <label key={service} className="flex items-center gap-3 cursor-pointer group">
-                  <div className="relative flex items-center justify-center">
-                    <input name="services" type="checkbox" value={service} className="peer appearance-none w-5 h-5 border border-gray-300 checked:bg-black checked:border-black transition-colors cursor-pointer" />
-                    <svg className="absolute w-3 h-3 text-white pointer-events-none opacity-0 peer-checked:opacity-100" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <span className="text-sm group-hover:text-black text-gray-600 transition-colors">{service}</span>
-                </label>
-              ))}
-            </div>
+          {/* Service — single pre-selected card (auto-selected per PRD §5.3 option a) */}
+          <div className="flex flex-col gap-3">
+            <label className="text-xs uppercase tracking-widest font-mono text-gray-500">Service</label>
+            {/* Hidden input carries the fixed service value through form submission */}
+            <input type="hidden" name="service" value="Top Stylist Hair Cutting — Rs. 2,500 / 30 mins — Shoaib Bashir" />
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
+              className="border border-black px-6 py-5 flex items-center justify-between bg-white"
+            >
+              <div className="flex flex-col gap-1">
+                <span className="text-base font-bold uppercase tracking-tight">Top Stylist Hair Cutting</span>
+                <span className="text-xs font-mono text-gray-500 uppercase tracking-widest">30 mins · Shoaib Bashir</span>
+              </div>
+              <span className="text-base font-bold font-mono">Rs. 2,500</span>
+            </motion.div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

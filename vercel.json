@@ -1,4 +1,10 @@
 {
+  "redirects": [
+    { "source": "/hair-color", "destination": "/", "permanent": true },
+    { "source": "/makeup", "destination": "/", "permanent": true },
+    { "source": "/skin-care", "destination": "/", "permanent": true },
+    { "source": "/nails", "destination": "/", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/(.*)",
